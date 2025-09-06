@@ -66,6 +66,28 @@
 //     console.log("c is greater");
 // }
 
+var a = 10;
+
+function double(num){
+    return num*2;
+}
+
+var res = double(6);
+console.log("res");
+
+var res1 = double(a)
+console.log(res1)
+
+/* ctrl + shift + / */
+/* 1.anonymous function : the function with no name and store in a variable to point
+var double = function(num){
+    return num*2;
+}
+2. Arrow function 
+var double =(num)=>{
+    return num*2
+    }
+*/
 
 
 
