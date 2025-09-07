@@ -94,7 +94,7 @@ var double =(num)=>{
     return num*2
     }
 
-3.
+3. IIFE (immediately invoked function expression)
 
 
 
