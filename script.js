@@ -78,6 +78,12 @@ console.log("res");
 var res1 = double(a)
 console.log(res1)
 
+const name = "sandeep ";
+let age = 26;
+let position = "student"
+
+console.table({name,age,position})
+
 /* ctrl + shift + / */
 /* 1.anonymous function : the function with no name and store in a variable to point
 var double = function(num){
@@ -87,6 +93,11 @@ var double = function(num){
 var double =(num)=>{
     return num*2
     }
+
+3.
+
+
+
 */
 
 
