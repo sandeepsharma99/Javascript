@@ -6,5 +6,6 @@
 6. anonymous function, arrow function and IIFE 
 7. conditional (if else nested if else switch case)
 8. loops(for loop , while loop, do while loop, for each , for in , for of)
-9. 
+9. creating object using constructor method 
+10. shallow copy(spread operator) deep copy(structureClone and json method)
 

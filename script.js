@@ -1,11 +1,12 @@
-// // let a = 10;
-// // const b = 20;
+let a = 10;
+const a1 = 20;
 
-// // function d(){
-// //     console.log(a);
-// //     let c= 30;
-// //     console.log(c);
-// // }
+function d(){
+    console.log(a);
+    let a2 = 30;
+    console.log(a2);
+}
+d();
 
 // // d();
 // // console.log(a);
@@ -66,23 +67,23 @@
 //     console.log("c is greater");
 // }
 
-var a = 10;
+// var a = 10;
 
-function double(num){
-    return num*2;
-}
+// function double(num){
+//     return num*2;
+// }
 
-var res = double(6);
-console.log("res");
+// var res = double(6);
+// console.log("res");
 
-var res1 = double(a)
-console.log(res1)
+// var res1 = double(a)
+// console.log(res1)
 
-const name = "sandeep ";
-let age = 26;
-let position = "student"
+// const name = "sandeep ";
+// let age = 26;
+// let position = "student"
 
-console.table({name,age,position})
+// console.table({name,age,position})
 
 /* ctrl + shift + / */
 /* 1.anonymous function : the function with no name and store in a variable to point
