@@ -1,21 +1,16 @@
-let sal = [1,2,3,4,5,6];
+let salary = [100,200,300,400,500];
 
-let sal2 = [10,20,30,40,50]
-
-function calcTenPercentaage(num){
-    return num*0.1;
+function calculateTenPercent(i){
+    return i*0.1;
 }
 
-function calcTwentyPercentage(num){
-    return num*0.2;
-}
-
-let res = [];
-
-sal.prtototype.calcuTax= function(calfun){
-    for(let i=0; i<num.length; i++){
-        res.push(calfun[i])
+Array.prototype.calculateTax = function(callback){
+    let res = [];
+    for(let i=0; i<this.length; i++){
+        res.push(callback(this[i]))
     }
     return res;
 }
-console.log(sal.calcuTax(calcTenPercentaage));
+
+// let finaloutput = calculateTax(salary,calculateTenPercent)
+console.log(salary.calculateTax(calculateTenPercent));
