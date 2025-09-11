@@ -1,20 +1,24 @@
-function makeSandwich(raw,callback){
-    console.log("bread")
+function makeSandwich(raw, callback){  //creating  a function named "makeSandwich passing two argument raw and a callbackfunction name callback "
+    // console.log("bread done") // 
     callback();
 }
 
 function stuffing(callback){
-    console.log("stuffed");
+    // console.log("stuffing done")
     callback();
 }
 
-function grilled(callback){
-    console.log("grilled")
+function grilling(callback){
+    console.log(callback);
+    // console.log("grilled done");
     callback();
 }
+
 
 makeSandwich("raw",function(){
     stuffing(function(){
-        setTimeout(grilled(), timeout);
-    }){}
+        grilling(function(){
+            // console.log("sandwich is ready");
+        })
+    })
 })

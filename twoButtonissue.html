@@ -8,16 +8,20 @@
 <body>
     <button id="red">Red</button>
     <button id="green">Green</button>
+    <button id="blue">blue</button>
+    
 
     <script>
-        function clickHandle(color){
-            return function(){
-                document.body.style.backgroundColor = `${color}`;
-            }  
-        }
-        document.getElementById("red").onclick = clickHandle("red");
-        document.getElementById("green").onclick = clickHandle("green")
 
+        function changeColor(color){
+            return function(){
+                document.body.style.backgroundColor = color;
+            }
+        }
+
+        document.getElementById("red").onclick = changeColor("red");
+        document.getElementById("green").onclick = changeColor("green");
+        document.getElementById("blue").onclick = changeColor("blue");
     </script>
 </body>
 </html>
