@@ -37,8 +37,24 @@
 
 let arr = [1,2,3,4,5]
 
-function operation(arr){
-console.log(arr*2);
+// function operation(num){
+// console.log(num*2);
+// }
+
+// function processArray (arr, cb){
+//     let newArr = []
+//     for(let i=0; i<this.length; i++){
+//         newArr.push(cb(this[i]))
+//     }
+//     return newArr;
+// };
+// processArray(operation);
+
+
+
+
+function operation(i){
+return i*2;
 }
 
 Array.prototype.processArray = function(cb){
@@ -46,6 +62,6 @@ Array.prototype.processArray = function(cb){
     for(let i=0; i<this.length; i++){
         newArr.push(cb(this[i]))
     }
-    return newArr;
+    console.log(newArr);
 };
 arr.processArray(operation);

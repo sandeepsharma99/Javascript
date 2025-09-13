@@ -1,0 +1,24 @@
+let obj1 = {
+    name:"sandeep",
+    age:25,
+    print:function(city, country){
+        console.log(`name is ${this.name} age ${this.age} and city ${city} and country ${country}`);
+    }
+}
+
+let obj2 = {
+    name:"sharma",
+    age:19
+};
+
+// bom provides these according to their call
+
+// methods for borrowing a function from other function
+// call method to borrow a function from other function
+obj1.print.call(obj2,"bangalore","india"); 
+//aaply method pass extra argument inside array
+obj1.print.apply(obj2,["mumbai","India"]);
+//bind method pass instance/copy that create a new same function in space that we have to call using iife to use it
+obj1.print.bind(obj2,"greater noida","India")();
+
+// BOM provides and decides these method according to their uses
