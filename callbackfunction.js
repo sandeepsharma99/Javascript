@@ -18,11 +18,38 @@ function grilling(callback){
 makeSandwich("raw",function(){
     stuffing(function(){
         grilling(function(){
-            // console.log("sandwich is ready");
+            console.log("sandwich is ready")
         })
     })
 })
 
 
+// makeSandwich("raw",function(){
+//     stuffing(function(){
+//         grilling(function(){
+//             // console.log("sandwich is ready");
+//         })
+//     })
+// })
 
-/* Callback is the foundation of Asynchronous programming  */
+
+// function sum (a,b,cb){
+//     let res = a+b;
+//     cb(res);
+// }
+// function printValue(res){
+//     console.log(res);
+// }
+
+// sum(2,3,printValue)
+
+
+
+/* Callback is the foundation of Asynchronous programming  
+# callback function is a function passed into another function as an argument, which is then invoked inside the outer function 
+*/
+
+// Callback Hell (Pyramid of Doom)
+
+
+/* Now passing vs attachingthe function   (callback--> promises )*/

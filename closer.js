@@ -17,3 +17,6 @@ acess of parent scope and if value not found then parent moves to its parent sco
 
 /* A closure is created when a inner function remembers can access the variables from its outer function (within enclosed func)scope, even after that outer function has finished executing. */
 
+/* Variables : variables is a global scope variable that mean var can be access at anywhere even in other function scopes or other blocks
+
+# it only respect function  boundary where var is declare inside a function not only in curly braces, only if function */
