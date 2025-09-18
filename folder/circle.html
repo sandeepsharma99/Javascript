@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .circle{
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            background-color: blue;
+        }
+        .container{
+            background-color: burlywood;
+            height: 700px;
+            width: 800px;
+        }
+    </style>
+</head>
+<body>
+    
+        <input type="text" placeholder="shape" class="shapeInput">
+        <input type="color" placeholder="color" class="shapeColor">
+        <input type="number" placeholder="number" class="Quantity">
+        <button class="btn" onclick="">Generate</button>
+
+        <div class="container"></div>
+
+    <script>
+        let container = document.querySelector(".container");
+        let btn = document.querySelector(".btn");
+
+        btn.addEventListener("click",()=>{
+            let color1 =document.querySelector(".shapeColor").value;
+            let count = document.querySelector(".Quantity").value
+            for(let i =0; i<=count; i++){
+                let shape = document.createElement("div")
+                shape.classList.add("circle")
+                shape.style.backgroundColor = color1;
+                container.appendChild(shape)
+  
+            }
+            
+        })
+    </script>
+</body>
+</html>
