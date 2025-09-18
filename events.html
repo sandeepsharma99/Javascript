@@ -6,18 +6,18 @@
     <title>Document</title>
     <style>
         .grandparent{
-            width: 300px;
-            height: 300px;
+            width: 500px;
+            height: 500px;
             background-color: aqua;
         }
         .parent{
-            width: 200px;
-            height: 200px;
+            width: 300px;
+            height: 300px;
             background-color: blue;
         }
         .child{
-            width: 300px;
-            height: 300px;
+            width: 100px;
+            height: 100px;
             background-color: red;
         }
         
@@ -32,7 +32,37 @@
     </div>
 
     <script>
-        
+    let grandparent = document.querySelector(".grandparent")
+    let parent = document.querySelector(".parent")
+    let child = document.querySelector(".child")
+
+    grandparent.addEventListener("click",()=>{
+        console.log("grandparen clicked")
+    },true)  
+    parent.addEventListener("click",()=>{
+        console.log("paren clicked")
+    },true)  
+    child.addEventListener("click",()=>{
+        console.log("child clicked")
+    },true)  
+
     </script>
 </body>
 </html>
+
+<!-- ========== EventListener ========== -->
+<!-- it listen for specific event such as onclick ,keyboard,submit on element and execute a function 
+ 
+Syntax : element.addEventListener(event, function,true);
+-->
+<!-- ========== Event Handler ========== 
+Event handler are set of line that's all i know
+
+
+
+
+
+-->
+
+
+
