@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <input type="text" placeholder="shape">
+        <input type="color" placeholder="color">
+        <input type="number" placeholder="number">
+        <button class="btn">Generate</button>
+    </div>
+        <div class="container"></div>
+
+
+    <script>
+        let btn = document.querySelector("#btn");
+        let container = document.querySelector("#shape");
+
+        btn.addEventLiatener("click",()=>{
+            let shape = document.querytSlector("#shape");
+            let shapeInput = shape.value;
+
+            let color = document.querySelctor("#color");
+            let colorInput = color.value;
+
+            let quantity = document.querySelector("#quantity");
+            let quantityInput = quantity.value;
+
+            for(let i=0; i<quantityInput;i++){
+                let shape = document.createElement("div");
+                shape.classList.add(shapeInput);
+                shape.style.backgroundColor = colorInput;
+                container.appendChild(shape);
+            }
+        })
+    </script>
+</body>
+</html>

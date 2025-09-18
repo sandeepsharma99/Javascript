@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 100vw;
+    height: 700px;
+    background-color: aqua;
+    padding:20px;
+}
+
+.parent{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.box{
+    height: 10%;
+    width: 200px;
+    background-color: red;
+    text-align: center; 
+}
+.big-box{
+    height: 500px;
+    width: 80%;
+    background-color:white;
+}

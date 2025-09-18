@@ -1,0 +1,79 @@
+<!-- <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Random Circle Generator on Click</title>
+  <style>
+   .container{
+    height: 500px;
+    width: 80%;
+    background-color: black;
+   }
+   .box{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+   }
+  </style>
+</head>
+<body>
+    <div class="container"><div class="box"></div></div>
+    <script>
+        let conatiner = document.querySelector(".container")
+
+        addEventListener(onclick,()=>{
+            document.crateElement("div")
+            box.classList.add("box")
+            conatiner.appendChild("container")
+        })
+
+    </script>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            background-color: aqua;
+            height: 500px;
+            width: 700px;
+        }
+        .circle{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: red;
+        }
+        
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="shape" id="shape">
+    <div class="container"></div>
+
+    <script>
+        let container = document.querySelector(".container");
+
+        container.addEventListener("click",()=>{
+            let shapeInput = document.querySelector("#shape").value;
+
+            let shape = document.createElement("div");
+            shape.classList.add(shapeInput);
+            shape.style.background = randomIndex
+
+            container.appendChild(shape);
+        })
+    </script>
+    
+        
+</body>
+</html>
