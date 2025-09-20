@@ -8,4 +8,6 @@
 8. loops(for loop , while loop, do while loop, for each , for in , for of)
 9. creating object using constructor method 
 10. shallow copy(spread operator) deep copy(structureClone and json method)
+11. what is the difference between event Handler and event listener?
+12. Why event delegation is the cornor case of event bubbling ?
 
