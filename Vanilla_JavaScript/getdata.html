@@ -13,16 +13,22 @@
        
         async function getData () {
             try{
-                const res= await fetch("https://api.github.com/users/im-lakshyaa")
-                if(!res.ok){
-                    throw new error("something went wrong")
-                }
-                const data= await res.json();
-                let inputData = document.createElement("h1");
-                container.appendChild(inputData)
-                // return data;
-                console.log(data);
-                
+                const res=  fetch("https://api.github.com/users/im-lakshyaa")
+                // if(!res.ok){
+                //     throw new error("something went wrong")
+                // }
+                // const data= await res.json();
+                // let inputData = document.createElement("h1");
+                // container.appendChild(inputData)
+                // // return data;
+                // console.log(data);
+                .then((r)=>{
+                    const data = r.json();
+                    return data;
+                })
+                .then((d)=>{
+                    console.log(d)
+                })
                 
             }
             catch(err){
