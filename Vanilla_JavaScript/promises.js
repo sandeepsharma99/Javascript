@@ -1,4 +1,4 @@
-const response = fetch ("https://api.github.com/users/im-lakshyaa")
+const response = fetch ("https://api.github.com/users/im-lakshyaa")   // fetch return a promise object which we convert then to json format.
 response.then((res)=>{
     let data = res.jason();
     return data;
