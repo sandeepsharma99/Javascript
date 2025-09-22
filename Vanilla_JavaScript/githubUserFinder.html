@@ -1,33 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Username Finder</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      margin: 20px 0;
+      font-size: 2rem;
+    }
+
+    .search-box {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      width: 250px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #ff9800;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #e68900;
+      transform: scale(1.05);
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      border-radius: 15px;
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    .avatar {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      border: 3px solid #fff;
+      margin-bottom: 15px;
+    }
+
+    .name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .username {
+      font-size: 14px;
+      color: #ddd;
+      margin-bottom: 10px;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 15px;
+    }
+
+    .stat {
+      font-size: 14px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-    <button class="btn" onclick="getData()">find usersss</button>
-    <div class="container"></div>
+  <h1>🔍 GitHub Username Finder</h1>
+  
+  <div class="search-box">
+    <input type="text" id="username" placeholder="Enter GitHub username">
+    <button class="btn" onclick="getData()">Find User</button>
+  </div>
+  
+  <div class="container"></div>
 
-    <script>
-        async function getData(){
-            try{
-                const res = await fetch("https://api.github.com/users/sandeepsharma99")
-            if(!res.ok){
-                throw new Error ("something went wrong") 
-            }
-            const data =  await res.json();
-            // console.log(data)
-            let container = document.querySelector(".container")
-            let para = document.createElement("p")
-            para.innerText =  data.name;
-            container.append(para)
-            }
-            catch(err){
-                console.log(err)
-            }
+  <script>
+    async function getData() {
+      const user = document.getElementById("username").value.trim();
+      if (!user) {
+        alert("Please enter a username!");
+        return;
+      }
+
+      try {
+        const res = await fetch(`https://api.github.com/users/${user}`);
+        if (!res.ok) {
+          throw new Error("User not found");
         }
-    </script>
+        const data = await res.json();
+
+        document.querySelector(".container").innerHTML = `
+          <div class="card">
+            <img src="${data.avatar_url}" alt="Avatar" class="avatar">
+            <div class="name">${data.name ? data.name : "No name available"}</div>
+            <div class="username">@${data.login}</div>
+            <div class="stats">
+              <div class="stat"><b>${data.followers}</b><br>Followers</div>
+              <div class="stat"><b>${data.following}</b><br>Following</div>
+              <div class="stat"><b>${data.public_repos}</b><br>Repos</div>
+            </div>
+          </div>
+        `;
+      } catch (err) {
+        document.querySelector(".container").innerHTML = `
+          <p style="color: yellow; font-weight: bold;">⚠️ ${err.message}</p>
+        `;
+      }
+    }
+  </script>
 </body>
 </html>
