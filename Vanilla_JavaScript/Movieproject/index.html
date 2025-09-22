@@ -4,16 +4,141 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Movie Search</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    input {
+      padding: 10px;
+      width: 250px;
+      border-radius: 5px;
+      border: none;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #e50914;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #b0060f;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: left;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      margin: 5px 0;
+    }
+
+    .rating {
+      color: #ffcc00;
+      font-weight: bold;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    .desc {
+      font-size: 14px;
+      color: #bbb;
+    }
+  </style>
 </head>
 <body>
+  <h1>🎬 Movie Search</h1>
   <input type="text" class="movieName" placeholder="Enter movie name">
   <button class="btn" onclick="getdata()">Search</button>
   <div class="container"></div>
 
   <script>
-      
+    async function getdata() {
+      const movieName = document.querySelector(".movieName").value.trim();
+      if (!movieName) return alert("Please enter a movie name");
 
-      async function getdata(){
+      const res = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=f786c77753491875a80135f8ea02c61d&query=${movieName}`);
+      if (!res.ok) {
+        throw new Error("Error");
+      }
+
+      const data = await res.json();
+      console.log(data);
+
+      const container = document.querySelector(".container");
+      container.innerHTML = ""; // clear old results
+
+      data.results.forEach(i => {
+        if (!i.poster_path) return; // skip if no poster
+
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        const img = document.createElement("img");
+        img.src = `https://image.tmdb.org/t/p/w500${i.poster_path}`;
+        img.alt = i.title;
+
+        const para1 = document.createElement("p");
+        para1.classList.add("rating");
+        para1.innerText = `⭐ Rating: ${i.vote_average}`;
+
+        const para2 = document.createElement("p");
+        para2.classList.add("title");
+        para2.innerText = `🎥 ${i.title}`;
+
+        const para3 = document.createElement("p");
+        para3.classList.add("desc");
+        para3.innerText = i.overview || "No description available.";
+
+        card.append(img, para1, para2, para3);
+        container.append(card);
+      });
+    }
+  </script>
+</body>
+</html>
+
+
+
+<!-- 
+
+ async function getdata(){
 
           const movieName = document.querySelector(".movieName").value.trim();
 
@@ -44,10 +169,8 @@
             container.append(para3)
           })
 
-        }    
+        }  
 
-  </script>
-</body>
-</html>
+-->
 
 
