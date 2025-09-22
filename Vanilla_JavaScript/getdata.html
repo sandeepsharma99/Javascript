@@ -13,29 +13,35 @@
        
         async function getData () {
             try{
-                const res=  fetch("https://api.github.com/users/im-lakshyaa")
-                // if(!res.ok){
-                //     throw new error("something went wrong")
-                // }
-                // const data= await res.json();
+                const res=  await fetch("https://api.github.com/users/sandeepsharma99")
+                if(!res.ok){
+                    throw new error("something went wrong")
+                }
+                const data= await res.json();
                 // let inputData = document.createElement("h1");
+                // const container = document.querySelector(".container")
                 // container.appendChild(inputData)
-                // // return data;
-                // console.log(data);
-                .then((r)=>{
-                    const data = r.json();
-                    return data;
-                })
-                .then((d)=>{
-                    console.log(d)
-                })
+                // return data;
+                console.log(data);
+
+                /*  */
+                
+                // .then((r)=>{
+                //     const data = r.json();
+                //     return data;
+                // })
+                // .then((d)=>{
+                //     console.log(d)
+                // })
                 
             }
             catch(err){
                 console.log(err);
                                 
             }
+            
         }
+        // getData();
         //  let hi=document.querySelector(".btn")
         // hi.addEventListener("click",()=>{
         //     let data=document.createElement("h1")
@@ -44,7 +50,13 @@
         //     let body=document.getElementsByTagName("body")
            
         // })
-        
+        // async function getdata (url){
+        //     try{
+        //         const res = await fetch ("")
+        //         const data = await res.json;
+        //         console.log(data)
+        //     }
+        // }
     </script>
 </body>
 </html>
