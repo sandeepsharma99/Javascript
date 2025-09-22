@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
 <body>
-    <button class="btn" onclick="getData()">find User</button>
+    <button class="btn" onclick="getData()">find usersss</button>
+    <div class="container"></div>
 
     <script>
-        async function getData (){
+        async function getData(){
             try{
-                const res = await fetch ("https://api.github.com/users/sandeepsharma99");
-                if(!res.ok){
-                    throw new error("something is wrong")
-                }
-                const data = await res.json();
-                console.log(data);
-
+                const res = await fetch("https://api.github.com/users/sandeepsharma99")
+            if(!res.ok){
+                throw new Error ("something went wrong") 
+            }
+            const data =  await res.json();
+            // console.log(data)
+            let container = document.querySelector(".container")
+            let para = document.createElement("p")
+            para.innerText =  data.name;
+            container.append(para)
             }
             catch(err){
                 console.log(err)
