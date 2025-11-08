@@ -1,4 +1,58 @@
+
+<!-- // what is the difference between HTMLcollection and NodeList ? -->
 <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    <style>
+        .para{
+            color:red
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>this is headiing</h1>
+        <h1>this is heading 1 by tag name</h1> 
+        <h1 class="heading-1">this is heading 1 by class</h1> 
+    <h1 class="heading-1">this is heading 1 by class</h1> 
+    <h1 id="heading-id">this is heading 1 by id</h1> 
+
+    <img src="https://images.pexels.com/photos/34106378/pexels-photo-34106378.jpeg" alt="" style="width: 200px;">
+    </div>
+
+    <script>
+        //retreival of Node/element
+
+        // const a = document.getElementsByTagName("h1") //return array of  htmlcollection 
+        // const a = document.getElementById("heading-id") //return element 
+        // const a = document.getElementsByClassName("heading-1") // return array of  htmlcollection 
+        // const a = document.querySelector(".heading-1") // return first element matching query(identity)
+        // const a = document.querySelectorAll(".heading-1") //return arary of Nodelist
+        // console.log(a)
+
+        // create  element or node    
+        // const para = document.createElement("p")
+        // para.innerText = "This is injected by js";
+        // para.classList.add("para")
+        // document.body.appendChild(para)
+        
+        // children Nodes
+        console.log(document.querySelector(".container").childNodes)
+        console.log(document.querySelector(".heading-1").parentNode)
+        
+        //Set Attribute
+        
+        const img = document.querySelector("img")
+        img.setAttribute("src","https://images.pexels.com/photos/9815813/pexels-photo-9815813.jpeg")
+        </script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,11 +73,9 @@
     </script>
    
 </body>
-</html>
-
-
+</html> -->
 <!-- 
- <script>
+    <script>
         // const res=document.getElementByTagName("h1");
         // console.log(res);
         const res = document.querySelector("img")
