@@ -94,6 +94,7 @@
       if (!movieName) return alert("Please enter a movie name");
 
       const res = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=f786c77753491875a80135f8ea02c61d&query=${movieName}`);
+      
       if (!res.ok) {
         throw new Error("Error");
       }

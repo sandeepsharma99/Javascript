@@ -1,6 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shape Generator</title>
+  <style>
+    /* 🔹 General Page Styling */
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #c9d6ff, #e2e2e2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    /* 🔹 Main Card Container */
+    .app {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 800px;
+    }
+
+    .app h1 {
+      margin-bottom: 25px;
+      color: #333;
+      font-size: 26px;
+    }
+
+    /* 🔹 Input Fields */
+    .controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+    }
+
+    select,
+    input[type="color"],
+    input[type="number"] {
+      padding: 10px 15px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      outline: none;
+      cursor: pointer;
+    }
+
+    select:hover,
+    input[type="color"]:hover,
+    input[type="number"]:hover {
+      border-color: #0078ff;
+    }
+
+    /* 🔹 Generate Button */
+    .btn {
+      background: linear-gradient(90deg, #0078ff, #00c6ff);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 120, 255, 0.4);
+    }
+
+    /* 🔹 Container for Shapes */
+    .container {
+      margin-top: 25px;
+      height: 400px;
+      width: 100%;
+      background-color: #f9f9f9;
+      border-radius: 15px;
+      border: 2px dashed #ccc;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      padding: 15px;
+      overflow-y: auto;
+    }
+
+    /* 🔹 Shapes */
+    .circle {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    .square {
+      height: 100px;
+      width: 100px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .hexagon {
+      width: 120px;
+      height: 120px;
+      clip-path: polygon(
+        25% 6.7%, 75% 6.7%, 
+        100% 50%, 75% 93.3%, 
+        25% 93.3%, 0% 50%
+      );
+      transition: transform 0.3s ease;
+    }
+
+    .circle:hover,
+    .square:hover,
+    .hexagon:hover {
+      transform: scale(1.1) rotate(10deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>🎨 Shape Generator</h1>
+    <div class="controls">
+      <label for="shape">Shape:</label>
+      <select class="shapeInput" name="shapes">
+        <option value="circle">Circle</option>
+        <option value="square">Square</option>
+        <option value="hexagon">Hexagon</option>
+      </select>
+
+      <label for="color">Color:</label>
+      <input type="color" class="colorInput" />
+
+      <label for="quantity">Quantity:</label>
+      <input type="number" class="quantity" placeholder="Quantity" />
+
+      <button class="btn">Generate</button>
+    </div>
+
+    <div class="container"></div>
+  </div>
+
+  <script>
+    const container = document.querySelector(".container");
+    const button = document.querySelector(".btn");
+
+    button.addEventListener("click", () => {
+      const quantity = document.querySelector(".quantity").value; // accessing the element
+      const usershape = document.querySelector(".shapeInput").value;
+      const usercolor = document.querySelector(".colorInput").value;
+
+      container.innerHTML = ""; // clear old shapes
+
+      for (let i = 0; i < quantity; i++) {
+        const newShape = document.createElement("div");
+        newShape.classList.add(usershape);
+        newShape.style.backgroundColor = usercolor;
+        container.appendChild(newShape);
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            height: 700px;
+            width: 700px;
+            background-color: beige;
+            border: 1px dotted black;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .circle{
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            
+        }
+        .square{
+            height: 100px;
+            width: 100px;
+        }
+        .hexagon {
+  width: 120px;
+  height: 120px;
+  clip-path: polygon(
+    25% 6.7%, 75% 6.7%, 
+    100% 50%, 75% 93.3%, 
+    25% 93.3%, 0% 50%
+  );
+}
+    </style>
+</head>
+<body>
+    <label for="">shape : </label>
+    <select name="shapes" class="shapeInput">
+    <option value="circle">circle</option>
+    <option value="square">square</option>
+    <option value="hexagon">hexagon</option>
+    </select>
+    
+    <input type="color" class="colorInput" >
+    <input type="number" class="quantity" placeholder="quantity">
+    <Button class="btn">generate</Button>
+    <div class="container"></div>
+
+    <script>
+        const container = document.querySelector(".container")
+        const onbuttonclick = document.querySelector(".btn")
+        
+        onbuttonclick.addEventListener("click",(event)=>{
+            const quantity = document.querySelector(".quantity").value
+            for(let i=0; i<quantity;i++){
+                const usershape = document.querySelector(".shapeInput").value
+                const usercolor = document.querySelector(".colorInput").value
+                const newshape =  document.createElement("div")
+                newshape.classList.add(usershape)
+                newshape.style.backgroundColor = usercolor
+                container.appendChild(newshape)
+            }
+        })
+        
+    </script>
+    
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -34,15 +281,13 @@
         btn.addEventListener("click",()=>{
             let color1 =document.querySelector(".shapeColor").value;
             let count = document.querySelector(".Quantity").value
-            for(let i =0; i<=count; i++){
+            
                 let shape = document.createElement("div")
                 shape.classList.add("circle")
                 shape.style.backgroundColor = color1;
-                container.appendChild(shape)
-  
-            }
-            
+                container.appendChild(shape)   
         })
     </script>
 </body>
-</html>
+</html> -->
+
